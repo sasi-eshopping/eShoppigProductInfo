@@ -5,6 +5,8 @@ package com.example.demo.service;
 
 import javax.validation.Valid;
 
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,10 +29,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequestMapping(path="/products") // This means URL's start with /demo (after Application path)
 public class ProductController {
 
-    
+    Logger logger=LoggerFactory.getLogger(ProductController.class);
 	@GetMapping(path="/getProduct/{id}")
 	public @ResponseBody Product  getProduct(@PathVariable("id") String id) throws Exception {
-	System.out.println("HIIIII");
+		logger.trace("Error happaned");
 	if(id.equalsIgnoreCase("1"))
 	{
 		Thread.sleep(500);
